@@ -1,47 +1,3 @@
-/*variable "location" {
-  type = string
-}
-
-variable "resource_group_name" {
-  type = string
-}
-
-variable "subnet_name" {
-  type    = string
-  default = "/subscriptions/15cb3ee3-c143-4893-83fd-09a6efa7b01f/resourceGroups/rg-cirrus-standard-01/providers/Microsoft.Network/virtualNetworks/vNet-cs-graduates-2025-57362353-cirrus-standard-01/subnets/sNet-cirrus-std-01"
-}
-variable "vnet_name" {
-  type = string
-
-}
-variable "vm_name" {
-  type = string
-}
-variable "vm_size" {
-  type = string
-}
-
-variable "admin_username" {
-  type = string
-}
-
-variable "create_public_ip" {
-  type    = bool
-  default = false
-}
-
-variable "admin_password" {
-  type      = string
-  sensitive = true
-}
-variable "os_disk_type" {
-  type = string
-}
-variable "tags" {
-  type = map(string)
-}
-*/
-
 terraform {
   required_providers {
     azurerm = {
@@ -88,7 +44,7 @@ resource "azurerm_network_interface" "nic" {
 
   ip_configuration {
     name                          = "ipconfig1"
-    subnet_id                     = data.azurerm_subnet.subnet.name
+    subnet_id                     = data.azurerm_subnet.subnet.id
     private_ip_address_allocation = "Dynamic"
   }
 }
